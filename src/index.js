@@ -26,7 +26,10 @@ mongoose.connect(localMongo,{
 
 app.use(cors());  
 app.use(express.json());
-app.use("/public", express.static(path.join(__dirname, "uploads")));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use("/public", express.static(path.join(__dirname, "public")));
+
 app.use('/api',adminRoutes);
 
 
