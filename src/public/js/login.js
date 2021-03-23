@@ -20,7 +20,9 @@ async function registerUser(e){
            password
         })
     }).then(resp=>resp.json())
-    console.log(res)
+    
+    if(res.error)
+        alert(JSON.stringify(res.error))
     if(res.message==="Invalid Password")
         alert("Invalid Password")
     else if(res.message==="User not found please signup")

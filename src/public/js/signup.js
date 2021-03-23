@@ -24,7 +24,8 @@ async function registerUser(e){
            password
         })
     }).then(resp=>resp.json())
-    console.log(res);
+    if(res.error)
+        alert(JSON.stringify(res.error))
     if(res.message==="User created Successfully..!"){
         alert("User created Successfully..!")
     }else if(res.message==="Something went wrong")

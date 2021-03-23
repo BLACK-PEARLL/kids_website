@@ -45,5 +45,9 @@ async function registerUser(event){
            cbvalue
         })
     }).then(resp=>resp.json())
-    alert(JSON.stringify(res))
+    if(res.error){
+        alert(JSON.stringify(res.error))
+        console.log(res.error)
+    }else if(res.form)
+        alert("your form has been submitted successfully")
 }

@@ -14,10 +14,9 @@ env.config();
 app.use(express.json());
 
 // database connection
-// database connection
-const localMongo= `mongodb://localhost/thesurvey`;
-//process.env.MONGODB_URI
-mongoose.connect(localMongo,{
+
+mongoose.connect(process.env.MONGODB_URI
+  ,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
     useCreateIndex:true,

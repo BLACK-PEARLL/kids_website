@@ -10,8 +10,6 @@ const formSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        unique: true,
-        lowercase: true,
       },
     Age: { 
         type:Number, 
