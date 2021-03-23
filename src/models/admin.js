@@ -3,14 +3,7 @@ const bcrypt = require("bcrypt");
 
 const adminSchema = new mongoose.Schema(
   {
-    firstName: {
-      type: String,
-      required: true,
-      trim: true,
-      min: 3,
-      max: 20,
-    },
-    lastName: {
+    Name: {
       type: String,
       required: true,
       trim: true,

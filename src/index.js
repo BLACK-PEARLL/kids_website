@@ -6,7 +6,7 @@ const path = require('path');
 const cors = require('cors');
 
 //routes
-const adminRoutes = require('./routes/adminRoutes')
+const adminRoutes = require('./routes/adminRoutes');
 
 // Configure
 env.config();
@@ -31,6 +31,7 @@ app.set('view engine', 'ejs');
 app.use("/public", express.static(path.join(__dirname, "public")));
 
 app.use('/api',adminRoutes);
+
 
 
 app.listen(process.env.PORT, () => {
