@@ -33,6 +33,7 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 
 app.use('/',adminRoutes);
 
+const port = process.env.PORT || 3001;
 
 app.listen(process.env.PORT, () => {
     console.log(`App listening on port ${process.env.PORT} `);
