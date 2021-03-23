@@ -1,5 +1,5 @@
 const n = document.getElementById('name')
-const e = document.getElementById('email')
+const emails = document.getElementById('email');
 const p = document.getElementById('password')
 
 const form = document.getElementById('form');
@@ -7,20 +7,22 @@ const form = document.getElementById('form');
 form.addEventListener('submit',registerUser);
 
 async function registerUser(e){
+    // console.log("ASDSD");
     e.preventDefault();
     let Name=n.value;
-    let email=e.value;
+    let email=emails.value;
     let password=p.value;
+    console.log(Name,email,password)
     const res = await fetch('/signup',{
         method:'POST',
         headers:{
-            'Content-type':'applications/json'
+            'Content-type':'application/json'
         },
-        body:{
-            "Name":Name,
-            'email':email,
-            "password":password
-        }
+        body:JSON.stringify({
+           Name,
+           email,
+           password
+        })
     }).then(resp=>resp.json())
     if(res.message==="Admin created Successfully..!"){
         alert( "Admin created Successfully..!")
