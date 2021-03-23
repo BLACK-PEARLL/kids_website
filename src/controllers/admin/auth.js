@@ -73,9 +73,6 @@ exports.signin = (req, res) => {
 };
 
 exports.signout = (req, res) => {
-  res.cookie('token','',{maxAge:1});
-  //   res.status(200).json({
-  //   message: "Signout successfully...!",
-  // });
+  res.clearCookie("token");
   res.redirect('/');
 };

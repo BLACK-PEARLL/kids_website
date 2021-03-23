@@ -20,3 +20,10 @@ exports.fill = async (req, res) => {
     });
 
 };
+
+exports.forms = async (req,res)=>{
+  const form = await Form.find({})
+  .exec();
+  res.render('formview',{data:form});
+  // res.status(200).json({ form });
+}
