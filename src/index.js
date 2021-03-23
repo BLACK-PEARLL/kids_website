@@ -6,7 +6,7 @@ const path = require('path');
 const cors = require('cors');
 
 //routes
-const adminRoutes = require('./routes/adminRoutes')
+const adminRoutes = require('./routes/adminRoutes');
 
 // Configure
 env.config();
@@ -28,6 +28,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/public", express.static(path.join(__dirname, "uploads")));
 app.use('/api',adminRoutes);
+
 
 
 app.listen(process.env.PORT, () => {

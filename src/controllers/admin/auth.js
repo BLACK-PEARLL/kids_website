@@ -2,7 +2,6 @@ const Admin = require('../../models/admin');
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const shortid = require("shortid");
-// const admin = require('../../models/admin');
 
 exports.signup = (req, res) => {
   Admin.findOne({ email: req.body.email }).exec((error, admin) => {
@@ -11,18 +10,17 @@ exports.signup = (req, res) => {
         message: "Admin already registered",
       });
 
+      
     Admin.estimatedDocumentCount(async (err, count) => {
       if (err) return res.status(400).json({ error });
       let role = "admin";
       if (count === 0) {
         role = "super-admin";
       }
-
-      const { firstName, lastName, email, password } = req.body;
+      const { Name, email, password } = req.body;
       const hash_password = await bcrypt.hash(password, 10);
       const _admin = new Admin({
-        firstName,
-        lastName,
+        Name,
         email,
         hash_password,
       });
