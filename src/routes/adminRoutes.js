@@ -20,10 +20,15 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 const router = express.Router();
-    
+router.get('/',(req,res)=>{
+  res.render("index")
+})
+router.get('/signup',(req,res)=>{
+  res.render("signup")
+})
 router.post('/signup',validateSignupRequest,isRequestValidated, signup);
 router.post('/signin',validateSigninRequest,isRequestValidated, signin);
 router.post('/signout', signout)
+router.post('/fillform',requireSignin,adminMiddleware,fill);
 
-    router.post('/fillform',requireSignin,adminMiddleware,fill);
 module.exports = router;

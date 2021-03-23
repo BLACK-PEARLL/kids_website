@@ -7,15 +7,15 @@ const cors = require('cors');
 
 //routes
 const adminRoutes = require('./routes/adminRoutes');
+const bodyParser = require('body-parser');
 
 // Configure
 env.config();
 app.use(express.json());
 
 // database connection
-const localMongo= `mongodb://localhost/survey`;
-//process.env.MONGODB_URI
-mongoose.connect(localMongo,{
+
+mongoose.connect(process.env.MONGODB_URI,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
     useCreateIndex:true,
@@ -25,12 +25,12 @@ mongoose.connect(localMongo,{
   });
 
 app.use(cors());  
-app.use(express.json());
+app.use(bodyParser.json());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-app.use('/api',adminRoutes);
+app.use('/',adminRoutes);
 
 
 
