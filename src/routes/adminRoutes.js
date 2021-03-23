@@ -26,9 +26,13 @@ router.get('/',(req,res)=>{
 router.get('/signup',(req,res)=>{
   res.render("signup")
 })
+router.get('/feedbackform',(req,res)=>{
+  res.render("surveyForm");
+})
+
 router.post('/signup',validateSignupRequest,isRequestValidated, signup);
 router.post('/signin',validateSigninRequest,isRequestValidated, signin);
 router.post('/signout', signout)
-router.post('/fillform',requireSignin,adminMiddleware,fill);
+router.post('/fillform',requireSignin,fill);
 
 module.exports = router;

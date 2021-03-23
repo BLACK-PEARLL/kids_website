@@ -1,15 +1,15 @@
 const Form = require('../models/form');
 
 exports.fill = async (req, res) => {
-    const { name, email, age, role, recommend, fcc, future} = req.body;
+    const { n, e, a, select1, select2, rbvalue, cbvalue} = req.body;
     const form = new Form({
-        Name:name, 
-        Email:email, 
-        Age:age, 
-        role:role, 
-        recommend:recommend, 
-        FCC:fcc, 
-        Future:future
+        Name:n, 
+        Email:e, 
+        Age:a, 
+        role:select1, 
+        recommend:rbvalue, 
+        FCC:select2, 
+        Future:cbvalue
     });
   
     await form.save((error, form) => {

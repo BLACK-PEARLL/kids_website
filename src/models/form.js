@@ -27,7 +27,7 @@ const formSchema = new mongoose.Schema({
         type:String,
     },
     Future: {
-        type:String,
+        type:Array,
     }
 },{timestamps:true});
 

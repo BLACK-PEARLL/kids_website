@@ -30,46 +30,45 @@
         </div>
         <div class="row d-flex justify-content-center" >
             <div class="col-10 bg-white" style="border-radius: 3px;">
-                <form>
+                <form id="form">
                     <div class="form-row m-4">
                         <label for="inputEmail4" class="col-sm-2 col-form-label">Name</label>
-                        <input type="email" class="form-control col-sm-10" id="inputEmail4" placeholder="Name">
+                        <input type="text" class="form-control col-sm-10" id="name" placeholder="Name">
                     </div>
                     <div class="form-row m-4">
                         <label for="inputEmail4" class="col-sm-2 col-form-label">Email</label>
-                        <input type="email" class="form-control col-sm-10" id="inputEmail4" placeholder="Email">
+                        <input type="email" class="form-control col-sm-10" id="email" placeholder="Email">
                     </div>
                     <div class="form-row m-4">
                         <label for="inputEmail4" class="col-sm-2 col-form-label">Age</label>
-                        <input type="number" class="form-control col-sm-10" id="inputEmail4" placeholder="Age" min="13">
+                        <input type="number" class="form-control col-sm-10" id="age" placeholder="Age" min="13">
                     </div>
                     <div class="form-row m-4">
                         <label for="inputEmail4" class="col-sm-4 col-form-label">Which options describes you the best</label>
-                        <select name="wo" class="form-control col-sm-8">
-                            <option value="1">Student</option>
-                            <option value="1">Student</option>
-                            <option value="1">Student</option>
+                        <select class="form-control col-sm-8" id="s1">
+                            <option value="Student">Student</option>
+                            <option value="Teacher">Teacher</option>
                         </select>
                     </div>
                     <div class="form-row m-4">
                         <label for="inputEmail4" class="col-sm-4 col-form-label">How likely is that you would recommend freeCodeCamp to a freind</label>
                         
                         <div class="form-check ml-3">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            <input class="form-check-input r1" type="radio" name="exampleRadios" value="Definetly" checked>
                             <label class="form-check-label" for="exampleRadios1">
                               Definetly
                             </label>
                           </div>
                           
                           <div class="form-check ml-3">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            <input class="form-check-input r1" type="radio" name="exampleRadios" value="May be">
                             <label class="form-check-label" for="exampleRadios2">
                               May be
                             </label>
                           </div>
                           
                           <div class="form-check ml-3">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            <input class="form-check-input r1" type="radio" name="exampleRadios" value="Not sure">
                             <label class="form-check-label" for="exampleRadios2">
                               Not sure
                             </label>
@@ -77,29 +76,29 @@
                     </div>
                     <div class="form-row m-4">
                         <label for="inputEmail4" class="col-sm-4 col-form-label">What do you like most in FCC</label>
-                        <select name="wo" class="form-control col-sm-8">
-                            <option value="1">Student</option>
-                            <option value="1">Student</option>
-                            <option value="1">Student</option>
+                        <select name="wo" class="form-control col-sm-8" id="s2">
+                            <option value="Student">Student</option>
+                            <option value="Teacher">Teacher</option>
+                          
                         </select>
                     </div>
                     <div class="form-row m-4">
                         <label for="inputEmail4" class="col-sm-4 col-form-label">Things that should be improved in future</label>
                         
                         <div class="form-check ml-3">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <input class="form-check-input cb1" type="checkbox" value="Frontend Projects">
                             <label class="form-check-label" for="defaultCheck1">
                               Frontend projects
                             </label>
                           </div>
                           <div class="form-check ml-3">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
+                            <input class="form-check-input cb1" type="checkbox" value="Backend projects" >
                             <label class="form-check-label" for="defaultCheck2">
                               Backend projects
                             </label>
                           </div>
                           <div class="form-check ml-3">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
+                            <input class="form-check-input cb1" type="checkbox" value="Data Visualisation">
                             <label class="form-check-label" for="defaultCheck2">
                               Data Visualisation
                             </label>
@@ -111,6 +110,7 @@
             </div>
         </div>
     </div>
+    <script src="../public/js/survey.js"></script>
 </body>
 
 </html>

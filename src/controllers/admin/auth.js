@@ -6,13 +6,13 @@ const shortid = require("shortid");
 exports.signup = (req, res) => {
   Admin.findOne({ email: req.body.email }).exec((error, admin) => {
     if(admin)
-      return res.status(400).json({
-        message: "Admin already registered",
+      return res.json({
+        message: "User already registered",
       });
 
       
     Admin.estimatedDocumentCount(async (err, count) => {
-      if (err) return res.status(400).json({ error });
+      if (err) return res.json({ error });
       let role = "admin";
       if (count === 0) {
         role = "super-admin";
@@ -27,14 +27,14 @@ exports.signup = (req, res) => {
 
       _admin.save((error, data) => {
         if (error) {
-          return res.status(400).json({
+          return res.json({
             message: "Something went wrong",
           });
         }
 
         if(data) {
           return res.status(201).json({
-            message: "Admin created Successfully..!",
+            message: "User created Successfully..!",
           });
         }
       });
@@ -43,34 +43,33 @@ exports.signup = (req, res) => {
 };
 
 exports.signin = (req, res) => {
-  Admin.findOne({ email: req.body.email }).exec(async (error, admin) => {
-    if (error) return res.status(400).json({ error });
-    if (admin) {
-      const isPassword = await admin.authenticate(req.body.password);
-      if (
-        isPassword &&
-        (admin.role === "admin" || admin.role === "super-admin")
-      ) {
-        const token = jwt.sign(
-          { _id: admin._id, role: admin.role },
-          process.env.JWT_SECRET,
-          { expiresIn: "1d" }
-        );
-        const { _id, firstName, lastName, email, role, fullName } = admin;
-        res.cookie("token", token, { expiresIn: "1d" });
-        res.status(200).json({
-          token,
-          admin: { _id, firstName, lastName, email, role, fullName },
-        });
+  
+    Admin.findOne({ email: req.body.email }).exec(async (error, admin) => {
+      if (error) return res.json({ error });
+      if (admin) {
+        const isPassword = await admin.authenticate(req.body.password);
+        if (isPassword && (admin.role === "admin" || admin.role === "super-admin")) {
+          const token = jwt.sign(
+            { _id: admin._id, role: admin.role },
+            process.env.JWT_SECRET,
+            { expiresIn: "1d" }
+          );
+          const { _id, Name, email, role } = admin;
+          res.cookie("token", token, { expiresIn: "1d" });
+          res.json({
+            token,
+            admin: { _id, Name, email, role },
+          });
+          
+        } else {
+          return res.json({
+            message: "Invalid Password",
+          });
+        }
       } else {
-        return res.status(400).json({
-          message: "Invalid Password",
-        });
+        return res.json({ message: "User not found please signup" });
       }
-    } else {
-      return res.status(400).json({ message: "Something went wrong" });
-    }
-  });
+    });
 };
 
 exports.signout = (req, res) => {
