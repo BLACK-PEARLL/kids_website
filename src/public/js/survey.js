@@ -45,5 +45,5 @@ async function registerUser(event){
            cbvalue
         })
     }).then(resp=>resp.json())
-    alert(JSON.stringify(res.form))
+    alert(JSON.stringify(res))
 }
