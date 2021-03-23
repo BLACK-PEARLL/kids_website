@@ -1,6 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
@@ -13,11 +11,46 @@
     
     <!--Fontawesome CDN-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="../public/css/styles.css">
+	
 </head>
 <body>
-    
+	<div class="tablefixed">
+		<table class="table" style="margin: 0;">
+		  <thead class="thead-dark ">
+			  <tr>
+				  <th>S.No</th>
+				  <th>Name</th>
+				  <th>Email</th>
+				  <th>Age</th>
+				  <th>Current Role</th>
+				  <th>FCC Recommendation</th>
+				  <th>Liked the most in FCC</th>
+				  <th>Things to be improved in future</th>
+			  </tr>
+		  </thead>
+		  <tbody >
+			<% for(var i=0; i < data.length; i++) { %>
+				<tr>
+				  <td><%= i+1 %></td>
+				  <td><%= data[i].Name %></td>
+				  <td><%= data[i].Email %></td>
+				  <td><%= data[i].Age %></td>
+				  <td><%= data[i].role %></td>
+				  <td><%= data[i].recommend %></td>
+				  <td><%= data[i].FCC %></td>
+				  <td><%= data[i].Future %></td>
+				</tr>
+		   <% } %>
+		  </tbody>
+		</table>
+	</div>
+	<div style="display: flex; justify-content: center; align-items: center;" class="my-3">
+
+		<button class="btn bg-dark"><a class="text-white" href="/feedbackform" style="text-decoration: none;">Go to Survey form page</a></button>
+	</div>
 </body>
 </html>

@@ -33,7 +33,7 @@ router.get('/feedbackform',(req,res)=>{
 router.post('/signup',validateSignupRequest,isRequestValidated, signup);
 router.post('/signin',validateSigninRequest,isRequestValidated, signin);
 router.get('/signout', signout);
-router.get('/allform',forms);
+router.get('/allforms',forms);
 router.post('/fillform',requireSignin,fill);
 
 module.exports = router;
