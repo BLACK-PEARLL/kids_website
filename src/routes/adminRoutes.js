@@ -6,7 +6,7 @@ const express = require('express');
 const multer = require('multer');
 const { nanoid } = require('nanoid');
 const path = require('path');
-const {fill} = require('../controllers/form');
+const {fill, forms} = require('../controllers/form');
 
 //Storage for File storing
 const storage = multer.diskStorage({
@@ -32,7 +32,8 @@ router.get('/feedbackform',(req,res)=>{
 
 router.post('/signup',validateSignupRequest,isRequestValidated, signup);
 router.post('/signin',validateSigninRequest,isRequestValidated, signin);
-router.get('/signout', signout)
+router.get('/signout', signout);
+router.get('/allform',forms);
 router.post('/fillform',requireSignin,fill);
 
 module.exports = router;

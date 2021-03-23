@@ -73,6 +73,6 @@ exports.signin = (req, res) => {
 };
 
 exports.signout = (req, res) => {
-  res.cookie('token','',{maxAge:1});
+  res.clearCookie("token");
   res.redirect('/');
 };
