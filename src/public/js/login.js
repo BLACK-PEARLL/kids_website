@@ -28,5 +28,5 @@ async function registerUser(e){
     else if(res.message==="User not found please signup")
         alert("User not found please signup");
     if(res.token)
-        location.assign('/feedbackform')
+        location.assign('/home')
 }
